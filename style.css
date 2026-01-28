@@ -1,0 +1,310 @@
+/* ===== GLOBAL ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container-fluid {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: relative;
+      z-index: 2;
+      padding: 3rem 0 2rem;
+    }
+
+    .logo-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid rgba(124, 58, 237, 0.4);
+      box-shadow: 0 0 60px rgba(124, 58, 237, 0.6);
+      animation: logoPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% {
+        box-shadow: 0 0 60px rgba(124, 58, 237, 0.6);
+      }
+      50% {
+        box-shadow: 0 0 80px rgba(124, 58, 237, 0.8);
+      }
+    }
+
+    .main-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #7c3aed, #3b82f6, #ec4899);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientFlow 4s ease infinite;
+      letter-spacing: 2px;
+      text-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+      margin-top: 1rem;
+    }
+
+    @keyframes gradientFlow {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* ===== PLANNER CARD ===== */
+    .planner-card {
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 25px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .card-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid rgba(124, 58, 237, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+    }
+
+    /* ===== SECTION TITLE ===== */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #a78bfa, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #7c3aed, transparent);
+      border-radius: 2px;
+    }
+
+    /* ===== Q&A SECTION ===== */
+    .qa-container {
+      margin-bottom: 20px;
+    }
+
+    .qa-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .qa-question {
+      background: rgba(51, 65, 85, 0.5);
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      border-left: 3px solid rgba(124, 58, 237, 0.6);
+    }
+
+    .qa-answer {
+      background: rgba(51, 65, 85, 0.5);
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      border-left: 3px solid rgba(59, 130, 246, 0.6);
+    }
+
+    /* ===== NOTES SECTION ===== */
+    .notes-section {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(51, 65, 85, 0.3);
+      border-radius: 12px;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .notes-section p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2.5rem;
+      }
+      .logo-img {
+        width: 140px;
+        height: 140px;
+      }
+      .card-img {
+        width: 140px;
+        height: 140px;
+      }
+      .qa-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
+    @import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+* {
+	box-sizing: border-box;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+body {
+	font-family: Raleway, sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 1rem;
+	background-color: rgba(10, 12, 18, 1);
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+p {
+	margin: 0;
+}
+
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgba(168, 239, 255, 1);
+	--c2: rgba(168, 239, 255, 0.1);
+}
+
+.wrapper {
+	min-width: min(40rem, 100%);
+}
+
+.box {
+	font-size: 1vw;
+	margin: max(1rem, 3vw);
+	border: 0.35rem solid;
+	padding: 3vw;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+  
+}
+
+.box:nth-child(2) {
+	border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+	animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
+}
+#lol
+{
+   direction: ltr;
+  text-align: right;
+  unicode-bidi: plaintext;
+  margin: 0;
+  padding:0;
+  line-height: normal;
+}
+strong
+{
+  font-size:1.3em;
+}
